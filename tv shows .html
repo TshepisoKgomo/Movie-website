@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Warner Bros |Tv Shows</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="images/Warner bros logo.png">
+
+    <style>
+         
+ .logo{
+    font-family: helvetica;
+    font-weight:bold;
+    font-size:20px;
+    position:absolute;
+    margin-top:8px;
+    margin-left:10px;
+    text-decoration:none;
+    list-style:none;
+ }
+ 
+.navbar li{
+ float:right !important; 
+
+
+}
+ .navbar a{
+    text-decoration:none;
+    color:rgb(234, 241, 241);
+    width:100%;
+    display:block;
+    font-family: helvetica;
+    font-weight:bold;
+    font-size:16px;
+    padding:10px;
+    margin-right:20px;
+    margin-left:8px;
+    background:rgba(0,0,0,0,2);
+    border-radius:8px;
+    position:relative;
+    letter-spacing: 2px;
+    transition:0.5s;
+   
+
+}
+
+
+ a:active {
+    background-color: yellow;
+  }
+.navbar a:hover{
+    background:linear-gradient(45deg,#fd4f0b,#0b0236);
+    transition:0.5s;
+
+}
+/* carousel */
+.carousel{
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0.5%;
+}
+.carousel .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel .list .item .content{
+    position: absolute;
+    top: 15%;
+    width: 1140px;
+    max-width: 80%;
+    left: 43%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    font-family: helvetica;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+
+.carousel .list .item .title,
+.carousel .list .item .topic{
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+.carousel .list .item .topic{
+    color: #ff4500;
+}
+.carousel .list .item .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.carousel .list .item .buttons button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 2px;
+    font-family: Poppins;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 250px;
+}
+
+.carousel .list .item .buttons button:hover{
+    background: #0b0236;
+}
+/* thumbail */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+.thumbnail .item{
+    width: 170px;
+    height: 240px;
+    flex-shrink: 0;
+    position: relative;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.thumbnail .item .content{
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.thumbnail .item .content .title{
+    font-weight: 500;
+}
+.thumbnail .item .content .description{
+    font-weight: 300;
+}
+/* arrows */
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+ h3{
+    font-weight: bold;
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 5px;
+    margin-left: 4rem;
+}
+.des{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.picture img{
+    margin-top: 20px;
+}
+
+/* animation */
+.carousel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+/* animation text in first item */
+
+.carousel .list .item:nth-child(1) .content .author,
+.carousel .list .item:nth-child(1) .content .title,
+.carousel .list .item:nth-child(1) .content .topic,
+.carousel .list .item:nth-child(1) .content .des,
+.carousel .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.carousel .list .item:nth-child(1) .content .title{
+    animation-delay: 1.2s!important;
+}
+.carousel .list .item:nth-child(1) .content .topic{
+    animation-delay: 1.4s!important;
+}
+.carousel .list .item:nth-child(1) .content .des{
+    animation-delay: 1.6s!important;
+}
+.carousel .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1.8s!important;
+}
+/* create animation when next click */
+.carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .4s linear 1 forwards;
+}
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.prev .list .item img{
+    z-index: 100;
+}
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+.carousel.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+/* running time */
+
+.carousel .time{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    left: 0;
+    top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime{
+    from{ width: 100%}
+    to{width: 0}
+}
+
+
+/* prev click */
+
+.carousel.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
+    pointer-events: none;
+}
+.carousel.prev .list .item:nth-child(2) .content .author,
+.carousel.prev .list .item:nth-child(2) .content .title,
+.carousel.prev .list .item:nth-child(2) .content .topic,
+.carousel.prev .list .item:nth-child(2) .content .des,
+.carousel.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
+}
+.navbar{
+    width: 100%;
+    color: white;
+    align-content: flex-start;
+}
+
+.container{
+	
+	margin-top: -10px;
+   
+    
+}
+.words h4{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4500;
+    margin-left: 40px;
+    padding-left: -3px;
+    margin-top: 1800px;
+}
+
+.words img {
+    margin-top: -58px;
+    margin-left: -17px;
+    
+}
+.footer{
+    background-color:linear-gradient(45deg,#fd4f0b,#0b0236);
+     height: 85%;
+}
+
+.card-container{
+    display: inline-flex;
+    height: 50%;
+    margin-top: 5px;
+    gap: 40px;
+}
+
+.games-inside img{
+    height: 290px;
+    width: 230px;
+    margin-top: 63px;
+    object-fit: cover;
+    border: 2px solid rgb(4, 3, 87);
+    cursor: pointer;
+    object-position: center;
+    object-fit: fill;
+    border-radius: 20px;
+    padding: 4px;
+    box-shadow: 10px 10px 5px #ff4500;
+    transition: all 500ms ease-in-out;
+}
+    </style>
+  </head>
+  <body>
+    
+        
+      
+           
+       
+    <div class="navbar"> 
+        <div class="navbar">
+          <nav class="navbar nav nav-pills nav-fill ">
+          <nav class="navbar navbar-expand-lg ">
+                  <img src="images/Warner bros logo.png" alt="" height="50px" width="50px"class="logo">
+                  <h3>WARNER BROS</h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link " href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="movies.html">Movies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="tv shows .html">Tv Shows</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="apps and games .html">Apps and Games</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="Collections.html">Collections</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="feedback .html">Feedback</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            
+            </nav>
+      
+    
+    
+       
+     
+     <div class="carousel">
+        
+        <div class="list">
+            <div class="item">
+                <img src="images/batman.jpg">
+                <div class="content">
+                    <div class="title">SERIES</div>
+                    <div class="topic">COMEDY</div>
+                    <div class="des">
+                       
+                        Batman: The Animated Series (often shortened as Batman TAS or BTAS) is an American animated superhero television series based on the DC Comics superhero Batman
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/empire 2.png">
+                <div class="content">
+                  
+                    <div class="title">EMPIRE</div>
+                    <div class="topic">DRAMA</div>
+                    <div class="des">
+                        A hip-hop mogul must choose a successor among his three sons who are battling for control over his multi-million dollar company, while his ex-wife schemes to reclaim what is hers.
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/paris.jpeg">
+                <div class="content">
+                   
+                    <div class="title">PARIS IN LOVE</div>
+                    <div class="topic">REALITY</div>
+                    <div class="des">
+                        Paris Hilton finds love with Carter Reum, a successful venture capitalist who has brought Paris into the next phase of her life. However, Paris is about to discover that the road to the altar has a few unexpected twists and turns along the way.
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/loony big.jpg">
+                <div class="content">
+                   
+                    <div class="title">LOONY TUNES</div>
+                    <div class="topic">FAMILY</div>
+                    <div class="des">
+                      Looney Tunes. Goofy! Silly! Wacky! Looney! Follow the hilarious antics of Warner Bros.' classic animated characters Bugs Bunny, Daffy Duck and rest of the crew,
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="thumbnail">
+            <div class="item">
+                <img src="images/batman.jpg">
+                <div class="content">
+                    <div class="title">
+                        ANIMATION
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/empire 2.png">
+                <div class="content">
+                    <div class="title">
+                        DRAMA
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/paris.jpeg">
+                <div class="content">
+                    <div class="title">
+                      DRAMA
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/loony.jpg">
+                <div class="content">
+                    <div class="title">
+                        DRAMA
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        
+        <div class="time"></div>
+    </div>
+        
+    <div class="latest-movies" style="margin-top: 1200px;">
+        <h1>ACTION</h1>
+        <div class="card-container">
+            <div class="latest-inside">
+                <img src="images/reacher.jpg" alt="">
+                <div class="heading1">
+                    <h4>THE REACHER</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+            
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal1">
+                    Watch Trailer
+                    </button>
+            
+            </div>
+            <div class="latest-inside">
+                <img src="images/money heist.jpg" alt="">
+                <div class="heading1">
+                    <h4>MONEY HEIST</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal2">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="latest-inside">
+                <img src="images/sweet.jpg" alt="">
+                <div class="heading1">
+                
+                    <h4>POWER</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+               
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal3">
+                    Watch Trailer
+                    </button>
+               </div>
+            
+            <div class="latest-inside">
+                <img src="images/terminal list.jpg" alt="">
+                <div class="heading1">
+                    <h4>THE TERMINAL LIST</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                   
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal4">
+                    Watch Trailer
+                    </button>
+            </div>
+
+            <div class="latest-inside">
+                <img src="images/the recruit.jpg" alt="">
+                <div class="heading1">
+                    <h4>THE RECRUIT</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal5">
+                    Watch Trailer
+                    </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="games">
+        <h1>DRAMA</h1>
+        <div class="card-container">
+            <div class="games-inside">
+                <img src="images/river.jpg" alt="">
+                <div class="heading1">
+                    <h4>RIVERDALE</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal6">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="games-inside">
+                <img src="images/you.jpg" alt="">
+                <div class="heading1">
+                    <h4>YOU</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal7">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="games-inside">
+                <img src="images/paris.jpeg" alt="">
+                <div class="heading1">
+                    <h4>PEAKY BLINDERS</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal8">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="games-inside">
+                <img src="images/superman.jpg" alt="">
+                <div class="heading1">
+                    <h4>SUPERMAN AND LOUIS</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal9">
+                    Watch Trailer
+                    </button>
+            </div>
+
+            <div class="games-inside">
+                <img src="images/vampire.jpeg" alt="">
+                <div class="heading1">
+                    <h4>VAMPIRE DIARIES</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal10">
+                    Watch Trailer
+                    </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="tvshows">
+        <h1>ANIMATION</h1>
+        <div class="card-container">
+            <div class="tv-inside">
+                <img src="images/craig.jpg" alt="">
+                <div class="heading1">
+                    <h4>CRAIG OF THE CREEK</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal11">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="tv-inside">
+                <img src="images/velma.jpg" alt="">
+                <div class="heading1">
+                    <h4>VELMA</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal12">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="tv-inside">
+                <img src="images/grem.jpg" alt="">
+                <div class="heading1">
+                    <h4>GREMLINS:Secrets of the Mogwai</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal13">
+                    Watch Trailer
+                    </button>
+            </div>
+            <div class="tv-inside">
+                <img src="images/loony.jpg" alt="">
+                <div class="heading1">
+                    <h4>LOONY TUNES</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal14">
+                    Watch Trailer
+                    </button>
+            </div>
+
+            <div class="tv-inside">
+                <img src="images/bat wheels.jpg" alt="">
+                <div class="heading1">
+                    <h4>BATWHEELS</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#trailerModal15">
+                    Watch Trailer
+                    </button>
+            </div>
+        </div>
+    </div>
+    
+        
+         <!-- Modal -->
+         <div class="modal fade" id="trailerModal1" tabindex="-1" aria-labelledby="trailerModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel1">Reacher</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/GSycMV-_Csw?si=g1B7k3Pq6EPhUnPM" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal2" tabindex="-1" aria-labelledby="trailerModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel2">Money Heist</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/_InqQJRqGW4?si=Yh1CpcCFQvtJ5uBp" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal3" tabindex="-1" aria-labelledby="trailerModalLabel3" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel3">Sweet Tooth</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/9zG9RuJb3QU?si=vhrYyNAkEajh2pEv" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal4" tabindex="-1" aria-labelledby="trailerModalLabel4" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel4">THE TERMINAL LIST</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/x9FvvsC0B5Q?si=rGOaAn-wYE2WgdgN" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal5" tabindex="-1" aria-labelledby="trailerModalLabel5" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel5">THE RECRUIT</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/Hywe0zDSSSE?si=PaSK5D1D7RAwcIH4" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal6" tabindex="-1" aria-labelledby="trailerModalLabel6" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel6">RIVERDALE</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/HxtLlByaYTc?si=YwhxjL_MB1gDFS6i" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal7" tabindex="-1" aria-labelledby="trailerModalLabel7" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel7">YOU</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/ga1m0wjzscU?si=RW0JJmvAkIViTfaK" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal8" tabindex="-1" aria-labelledby="trailerModalLabel8" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel8">PEAKY BLINDERS</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/X3PGOaEfCmQ?si=XMEviPMARxfwUiHv" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal9" tabindex="-1" aria-labelledby="trailerModalLabel9" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel9">SUPERMAN AND LOIS</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/d2cIVMe80Nk?si=e0PB70GrPiV7Mjix" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal10" tabindex="-1" aria-labelledby="trailerModalLabel10" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel10">VAMPIRE DIARIES</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/BmVmhjjkN4E?si=ZR0SJXvWHeTDRxxq" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal11" tabindex="-1" aria-labelledby="trailerModalLabel11" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel11">CRAIG OF THE CREEK</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/d8SpNwDpvoU?si=fnAAD1FwcMNN2HoM" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal12" tabindex="-1" aria-labelledby="trailerModalLabel12" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel12">VELMA</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/KfaGnvgBHXE?si=oQvrf4hJ1eQXw_wc" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal13" tabindex="-1" aria-labelledby="trailerModalLabel13" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel13">GREMLINS: Screts of the Mogwai</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/6z_bsaGKoMI?si=DHXcURYsNfLSjuKL" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal14" tabindex="-1" aria-labelledby="trailerModalLabel14" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel14">LOONY TUNES</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/nalw1XRAiMI?si=mi9DOTB8znpll7pb" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal15" tabindex="-1" aria-labelledby="trailerModalLabel15" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel15">BATWHEELS</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(5, 5, 8); border-color: rgb(218, 4, 4);" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/TIn6a38Q6Xo?si=kG5Uygl4OjFnTwnG" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal16" tabindex="-1" aria-labelledby="trailerModalLabel16" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel16">Clint Eastwood</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/1jkw2JPCl18?si=ZlJmYAITGDi9OmCE" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="trailerModal17" tabindex="-1" aria-labelledby="trailerModalLabel17" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="trailerModalLabel17">Stephen King</h5>
+                  <button type="button" class="btn-close" style="background-color: rgb(159, 159, 254); border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/JGMsMhp7q0c?si=cTPJAHglAHe5j0r_" title="YouTube video player"" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="words" style="margin-top: 105rem; padding-left: 35px;">
+            <h4>TM & © 2024 Warner Bros. Entertainment Inc. All rights reserved.</h4>
+        <img src="images/Warner bros logo.png" alt="" height="50px" width="50px"class="logo"></div>
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col">
+        
+                           
+                            <h4>COMPANY</h4>
+                            <ul>
+                                <li><a href="https://www.warnerbros.com/news/press-releases">Press Release</a></li>
+                                <li><a href="https://www.warnerbroscareers.com/">Careers</a></li>
+                                <li><a href="https://www.warnerbros.com/international">International</a></li>
+                                <li><a href="https://www.warnerbros.com/help/faq">Help</a></li>
+                               
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>online shop</h4>
+                            <ul>
+                                <li><a href="https://policies.warnerbros.com/terms/en-us/">Terms of Use</a></li>
+                                <li><a href="https://www.warnermediaprivacy.com/policycenter/b2c/wm/">Privacy Policy</a></li>
+                                <li><a href="https://www.warnerbros.com/content/sourced-traffic-disclosure">Sourced Traffic Disclosure</a></li>
+                                <li><a href="https://policies.warnerbros.com/terms/en-us/#accessibility">Accessibility</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>follow us on</h4>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/warnerbrosent/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/Warnerbros/"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/warnerbrosentertainment/"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/warner-bros--entertainment/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+                </div>
+           </footer>    
+
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

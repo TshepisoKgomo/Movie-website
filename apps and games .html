@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Warner Bros |Apps and Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="images/Warner bros logo.png">
+
+    <style>
+        
+
+
+ .logo{
+    font-family: helvetica;
+    font-weight:bold;
+    font-size:20px;
+    position:absolute;
+    margin-top:6px;
+    margin-left:10px;
+    text-decoration:none;
+    list-style:none;
+ }
+ 
+.navbar li{
+ float:right !important; 
+
+
+}
+ .navbar a{
+    text-decoration:none;
+    color:rgb(234, 241, 241);
+    width:100%;
+    display:block;
+    font-family: helvetica;
+    font-weight:bold;
+    font-size:16px;
+    padding:15px;
+    margin-right:20px;
+    margin-left:8px;
+    background:rgba(0,0,0,0,2);
+    border-radius:8px;
+    position:relative;
+    letter-spacing: 2px;
+    transition:0.5s;
+   
+
+}
+
+ 
+.navbar a:hover{
+    background:linear-gradient(45deg,#fd4f0b,#0b0236);
+    transition:0.5s;
+
+}
+/* carousel */
+.carousel{
+    height: 100vh;
+    margin-top: -50px;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0.5%;
+}
+.carousel .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.carousel .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel .list .item .content{
+    position: absolute;
+    top: 15%;
+    width: 1140px;
+    max-width: 80%;
+    left: 43%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    font-family: helvetica;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+
+.carousel .list .item .title,
+.carousel .list .item .topic{
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+.carousel .list .item .topic{
+    color: #ff4500;
+}
+.carousel .list .item .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.carousel .list .item .buttons button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 2px;
+    font-family: Poppins;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 250px;
+}
+
+.carousel .list .item .buttons button:hover{
+    background: #0b0236;
+}
+/* thumbail */
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+.thumbnail .item{
+    width: 170px;
+    height: 240px;
+    flex-shrink: 0;
+    position: relative;
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.thumbnail .item .content{
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.thumbnail .item .content .title{
+    font-weight: 500;
+}
+.thumbnail .item .content .description{
+    font-weight: 300;
+}
+/* arrows */
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+}
+.arrows button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+ h3{
+    font-weight: bold;
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 5px;
+    margin-left: 4rem;
+}
+.des{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.picture img{
+    margin-top: 20px;
+}
+
+/* animation */
+.carousel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+/* animation text in first item */
+
+.carousel .list .item:nth-child(1) .content .author,
+.carousel .list .item:nth-child(1) .content .title,
+.carousel .list .item:nth-child(1) .content .topic,
+.carousel .list .item:nth-child(1) .content .des,
+.carousel .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.carousel .list .item:nth-child(1) .content .title{
+    animation-delay: 1.2s!important;
+}
+.carousel .list .item:nth-child(1) .content .topic{
+    animation-delay: 1.4s!important;
+}
+.carousel .list .item:nth-child(1) .content .des{
+    animation-delay: 1.6s!important;
+}
+.carousel .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1.8s!important;
+}
+/* create animation when next click */
+.carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .4s linear 1 forwards;
+}
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.prev .list .item img{
+    z-index: 100;
+}
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+.carousel.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+/* running time */
+
+.carousel .time{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    left: 0;
+    top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime{
+    from{ width: 100%}
+    to{width: 0}
+}
+
+
+/* prev click */
+
+.carousel.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button{
+    pointer-events: none;
+}
+.carousel.prev .list .item:nth-child(2) .content .author,
+.carousel.prev .list .item:nth-child(2) .content .title,
+.carousel.prev .list .item:nth-child(2) .content .topic,
+.carousel.prev .list .item:nth-child(2) .content .des,
+.carousel.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .carousel .list .item .content{
+        padding-right: 0;
+    }
+    .carousel .list .item .content .title{
+        font-size: 30px;
+    }
+}
+.navbar{
+    width: 100%;
+    color: white;
+    align-content: flex-start;
+}
+
+.container{
+	
+	margin-top: -5px;
+   
+    
+}
+.words h4{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4500;
+    margin-left: 40px;
+    padding-left: -3px;
+    margin-top: 2000px;
+   
+    
+   
+}
+
+.words img {
+    margin-top: -55px;
+    margin-left: -17px;
+    
+}
+.footer{
+   
+     height: 85%;
+}
+
+.card-container{
+    display: inline-flex;
+    height: 50%;
+    margin-top: 5px;
+    gap: 40px;
+}
+
+.tvshows  h6{
+    color: #ff4500;
+}
+.apps h4{
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+.latest-movies h6{
+    color: #ff4500;
+}
+
+.games h6{
+    color: #ff4500;
+}
+
+.apps h6{
+    color: #ff4500;
+}
+    </style>
+  </head>
+  <body>
+    
+        
+      
+           
+    <div class="navbar">
+        <nav class="navbar nav nav-pills nav-fill ">
+        <nav class="navbar navbar-expand-lg ">
+                <img src="images/Warner bros logo.png" alt="" height="50px" width="50px"class="logo">
+                <h3>WARNER BROS</h3>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link " href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="movies.html">Movies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="tv shows .html">Tv Shows</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="apps and games .html">Apps and Games</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="Collections.html">Collections</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="feedback .html">Feedback</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav></nav>
+    
+    
+       <!-- carousel -->
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="images/dc super.jpg">
+                <div class="content">
+                    <div class="title">DC SUPER HERO GIRLS</div>
+                    <div class="topic">APP</div>
+                    <div class="des">
+                       
+                       
+                    </div>
+                    <div class="buttons">
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/galaxy.jpg">
+                <div class="content">
+                  
+                    <div class="title">GUARDIANS OF THE GALAXY</div>
+                    <div class="topic">GAME</div>
+                    <div class="des">
+                       
+                    </div>
+                    <div class="buttons">
+                        
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/titans.png">
+                <div class="content">
+                   
+                    <div class="title">TEEN TITANS</div>
+                    <div class="topic">APP</div>
+                    <div class="des">
+                        
+                    </div>
+                    <div class="buttons">
+                        
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/shadow.jpg">
+                <div class="content">
+                   
+                    <div class="title">SHADOW OF WAR</div>
+                    <div class="topic">ACTION</div>
+                    <div class="des">
+                        
+                    </div>
+                    <div class="buttons">
+                        
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+       
+     
+      <div class="thumbnail">
+          <div class="item">
+              <img src="images/dc super.jpg">
+              <div class="content">
+                  <div class="title">
+                      GAME
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="images/galaxy.jpg">
+              <div class="content">
+                  <div class="title">
+                      APP
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="images/titans.png">
+              <div class="content">
+                  <div class="title">
+                     GAME
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="images/shadow.jpg">
+              <div class="content">
+                  <div class="title">
+                     GAME
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+
+      <div class="arrows">
+          <button id="prev"><</button>
+          <button id="next">></button>
+      </div>
+      <!-- time running -->
+      <div class="time"></div>
+  </div>
+        
+    <div class="latest-movies" style=" margin-left: 20px;">
+        <h1> TRENDING GAMES</h1>
+        <div class="latest-container">
+            <div class="latest-inside">
+                <img src="images/hitman.jpg" alt="">
+                <div class="heading1">
+                    <h4>HITMAN 2</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               </div>
+            <div class="latest-inside">
+                <img src="images/mortal.jpg" alt="">
+                <div class="heading1">
+                    <h4>MORTAL COMBAT</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+           
+            <div class="latest-inside">
+                <img src="images/shadow.jpg" alt="">
+                <div class="heading1">
+                    <h4>Middle-earth:Shadow Of War</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+        
+            <div class="latest-inside">
+                <img src="images/prototype.jpg" alt="">
+                <div class="heading1">
+                    <h4>PROTOTYPE</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+    
+            <div class="latest-inside">
+                <img src="images/pub g.jpg" alt="">
+                <div class="heading1">
+                    <h4>PUB G</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+    <div class="games" style=" margin-left: 20px;">
+        <div class="card-container">
+            <div class="games-inside">
+                <img src="images/dragon.jpg" alt="">
+                <div class="heading1">
+                    <h4>DRAGON BALL Z</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+            <div class="games-inside">
+                <img src="images/injustice 2.jpg" alt="">
+                <div class="heading1">
+                    <h4>INJUSTICE 2</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+            <div class="games-inside">
+                <img src="images/game of thrones.jpg" alt="">
+                <div class="heading1">
+                    <h4>GAME OF THRONES: CONQUEST</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+            <div class="games-inside">
+                <img src="images/control.jpg" alt="">
+                <div class="heading1">
+                    <h4>CONTROL</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+    
+            <div class="games-inside">
+                <img src="images/batman.jpg" alt="">
+                <div class="heading1">
+                    <h4>BATMAN:Return to Arkham</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>VIDEO GAME</h6>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="tvshows" style="margin-top: 840px;">
+        <h1>APPEALING APPS</h1>
+        <div class="card-container" style="margin: -40px; margin-left: 20px;">
+            <div class="tv-inside">
+                <img src="images/dc comics.jpg" alt="">
+                <div class="heading1">
+                    <h4>DC COMICS</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>MOBILE APP</h6>
+                </div>
+               
+            </div>
+            <div class="tv-inside">
+                <img src="images/adult swim.jpg" alt="">
+                <div class="heading1">
+                    <h4>ADULT SWIM</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>MOBILE APP</h6>
+                </div>
+               
+            </div>
+            <div class="tv-inside">
+                <img src="images/titans.png" alt="">
+                <div class="heading1">
+                    <h4>TEEN TITANS</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>MOBILE APP</h6>
+                </div>
+               
+            </div>
+               
+            <div class="tv-inside">
+                <img src="images/dc super.jpg" alt="">
+                <div class="heading1">
+                    <h4>DC SUPER HERO GIRLS </h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>MOBILE APP</h6>
+                </div>
+               
+            </div>
+        
+    
+            <div class="tv-inside">
+                <img src="images/harry.jpg" alt="">
+                <div class="heading1">
+                    <h4>HARRY POTTER HOGWARTS MYSTERY</h4>
+                    <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                    <h6>MOBILE APP</h6>
+                </div>
+               
+                   
+               </div>
+            </div>
+        </div>
+    
+    
+        <div class="apps" style="margin-top: 1500px; margin-left: 20px;">
+            <div class="card-container">
+                <div class="app-inside">
+                    <img src="images/cartoon.jpg" alt="">
+                    <div class="heading1">
+                        <h4>CARTOON NETWORK</h4>
+                        <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                        <h6>MOBILE APP</h6>
+                    </div>
+                   
+                </div>
+                <div class="app-inside">
+                    <img src="images/game of thrones.jpg" alt="">
+                    <div class="heading1">
+                        <h4>GAME OF THRONES: CONQUEST</h4>
+                        <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                        <h6>MOBILE APP</h6>
+                    </div>
+                   
+                </div>
+                <div class="app-inside">
+                    <img src="images/games of games.jfif" alt="">
+                    <div class="heading1">
+                        <h4>GAMES OF GAMES</h4>
+                        <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                        <h6>MOBILE APP</h6>
+                    </div>
+                   
+                </div>
+                   
+                <div class="app-inside">
+                    <img src="images/wb.jpg" alt="">
+                    <div class="heading1">
+                        <h4>WB STUDIO TOURS</h4>
+                        <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                        <h6>MOBILE APP</h6>
+                    </div>
+                   
+                </div>
+            
+        
+                <div class="app-inside">
+                    <img src="images/ellen.jpg" alt="">
+                    <div class="heading1">
+                        <h4>ELLEN TUBE</h4>
+                        <p><span>&#9733;&#9733;&#9733;&#9733;&#9734; </span></p>
+                        <h6>MOBILE APP</h6>
+                    </div>
+                   
+                       
+                   </div>
+                </div>
+            </div>
+    
+         
+        
+        <div class="words" style="margin-top: 105rem; padding-left: 35px;">
+            <h4>TM & © 2024 Warner Bros. Entertainment Inc. All rights reserved.</h4>
+        <img src="images/Warner bros logo.png" alt="" height="50px" width="50px"class="logo"></div>
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col">
+        
+                           
+                            <h4>COMPANY</h4>
+                            <ul>
+                                <li><a href="https://www.warnerbros.com/news/press-releases">Press Release</a></li>
+                                <li><a href="https://www.warnerbroscareers.com/">Careers</a></li>
+                                <li><a href="https://www.warnerbros.com/international">International</a></li>
+                                <li><a href="https://www.warnerbros.com/help/faq">Help</a></li>
+                               
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>online shop</h4>
+                            <ul>
+                                <li><a href="https://policies.warnerbros.com/terms/en-us/">Terms of Use</a></li>
+                                <li><a href="https://www.warnermediaprivacy.com/policycenter/b2c/wm/">Privacy Policy</a></li>
+                                <li><a href="https://www.warnerbros.com/content/sourced-traffic-disclosure">Sourced Traffic Disclosure</a></li>
+                                <li><a href="https://policies.warnerbros.com/terms/en-us/#accessibility">Accessibility</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>follow us on</h4>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/warnerbrosent/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/Warnerbros/"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/warnerbrosentertainment/"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/warner-bros--entertainment/"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+                </div>
+           </footer>    
+
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
